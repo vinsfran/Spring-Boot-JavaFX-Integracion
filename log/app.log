@@ -3166,3 +3166,31 @@ Caused by: java.sql.SQLFeatureNotSupportedException: Method org.postgresql.jdbc.
 2020-06-11 14:55:31.894  INFO 18785 --- [Thread-10] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
 2020-06-11 14:55:31.903  INFO 18785 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2020-06-11 14:55:31.906  INFO 18785 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-06-11 15:14:32.437  INFO 19872 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Starting application on OptiPlex-3010 with PID 19872 (started by vinsfran in /home/vinsfran/Projects/JavaFx/Spring-Boot-JavaFX-Integracion)
+2020-06-11 15:14:32.439  INFO 19872 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : No active profile set, falling back to default profiles: default
+2020-06-11 15:14:32.791  INFO 19872 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-06-11 15:14:32.847  INFO 19872 --- [JavaFX Application Thread] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50ms. Found 2 repository interfaces.
+2020-06-11 15:14:33.185  INFO 19872 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-06-11 15:14:33.397  INFO 19872 --- [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-06-11 15:14:33.434  INFO 19872 --- [JavaFX Application Thread] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-06-11 15:14:33.474  INFO 19872 --- [JavaFX Application Thread] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2020-06-11 15:14:33.475  INFO 19872 --- [JavaFX Application Thread] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-06-11 15:14:33.574  INFO 19872 --- [JavaFX Application Thread] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-06-11 15:14:33.690  INFO 19872 --- [JavaFX Application Thread] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2020-06-11 15:14:34.001  INFO 19872 --- [JavaFX Application Thread] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
+2020-06-11 15:14:34.004  INFO 19872 --- [JavaFX Application Thread] org.hibernate.type.BasicTypeRegistry     : HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@984c38c
+2020-06-11 15:14:34.064  WARN 19872 --- [JavaFX Application Thread] org.hibernate.id.UUIDHexGenerator        : HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2020-06-11 15:14:34.364  WARN 19872 --- [JavaFX Application Thread] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2020-06-11 15:14:34.364  WARN 19872 --- [JavaFX Application Thread] o.h.engine.jdbc.spi.SqlExceptionHelper   : la tabla «cliente» no existe, ignorando
+2020-06-11 15:14:34.365  WARN 19872 --- [JavaFX Application Thread] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2020-06-11 15:14:34.366  WARN 19872 --- [JavaFX Application Thread] o.h.engine.jdbc.spi.SqlExceptionHelper   : la tabla «persona» no existe, ignorando
+2020-06-11 15:14:34.390  INFO 19872 --- [JavaFX Application Thread] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6e35c1fc'
+2020-06-11 15:14:34.393  INFO 19872 --- [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-06-11 15:14:34.694  INFO 19872 --- [JavaFX Application Thread] o.s.boot.SpringApplication               : Started application in 2.568 seconds (JVM running for 3.122)
+2020-06-11 15:14:34.834  INFO 19872 --- [JavaFX Application Thread] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-06-11 15:18:50.234  INFO 19872 --- [Thread-10] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-06-11 15:18:50.234  INFO 19872 --- [Thread-10] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2020-06-11 15:18:50.244  INFO 19872 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-06-11 15:18:50.247  INFO 19872 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

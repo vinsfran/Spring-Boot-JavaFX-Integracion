@@ -69,26 +69,37 @@ public class PersonaController implements Initializable {
 
     @FXML
     public void agregarPersona(ActionEvent event) {
-        String ci = this.txtCi.getText();
-        String nombre = this.txtNombre.getText();
-        String apellido = this.txtApellido.getText();
-        int edad = Integer.parseInt(this.txtEdad.getText());
 
-        Persona p = personaRep.findByCi(ci);
-        if (p == null) {
-            p = new Persona();
-            p.setCi(ci);
-            p.setNombre(nombre);
-            p.setApellido(apellido);
-            p.setEdad(edad);
-            personaRep.save(p);
-            this.personas.add(p);
-            this.tblPersonas.setItems(personas);
-        } else {
+        try {
+
+
+            String ci = this.txtCi.getText();
+            String nombre = this.txtNombre.getText();
+            String apellido = this.txtApellido.getText();
+            int edad = Integer.parseInt(this.txtEdad.getText());
+
+            Persona p = personaRep.findByCi(ci);
+            if (p == null) {
+                p = new Persona();
+                p.setCi(ci);
+                p.setNombre(nombre);
+                p.setApellido(apellido);
+                p.setEdad(edad);
+                personaRep.save(p);
+                this.personas.add(p);
+                this.tblPersonas.setItems(personas);
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setTitle("Error");
+                alert.setContentText("La persona existe");
+                alert.showAndWait();
+            }
+        } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
-            alert.setContentText("La persona existe");
+            alert.setContentText("Formato de Edad incorrecta");
             alert.showAndWait();
         }
 
