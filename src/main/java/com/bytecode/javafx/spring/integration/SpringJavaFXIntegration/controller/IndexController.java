@@ -1,9 +1,8 @@
-package com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.controllers;
+package com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.controller;
 
 import com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.model.Cliente;
 import com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.repo.ClienteRep;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;

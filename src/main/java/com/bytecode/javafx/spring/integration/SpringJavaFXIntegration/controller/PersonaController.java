@@ -1,4 +1,4 @@
-package com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.controllers;
+package com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.controller;
 
 import com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.model.Persona;
 import com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.repo.PersonaRep;
@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +19,8 @@ import java.util.ResourceBundle;
 
 @Component
 public class PersonaController implements Initializable {
+
+    private static final Log LOG = LogFactory.getLog(PersonaController.class);
 
     @Autowired
     private PersonaRep personaRep;
@@ -58,6 +62,7 @@ public class PersonaController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        LOG.info(Global.loginModel);
         personas = FXCollections.observableArrayList(personaRep.findAll());
         this.colCi.setCellValueFactory(new PropertyValueFactory("ci"));
         this.colNombre.setCellValueFactory(new PropertyValueFactory("nombre"));
@@ -71,8 +76,6 @@ public class PersonaController implements Initializable {
     public void agregarPersona(ActionEvent event) {
 
         try {
-
-
             String ci = this.txtCi.getText();
             String nombre = this.txtNombre.getText();
             String apellido = this.txtApellido.getText();
@@ -104,5 +107,8 @@ public class PersonaController implements Initializable {
         }
 
 
+    }
+
+    public void closeWindows() {
     }
 }
