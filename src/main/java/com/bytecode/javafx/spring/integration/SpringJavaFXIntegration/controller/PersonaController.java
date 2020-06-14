@@ -2,11 +2,16 @@ package com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.controlle
 
 import com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.model.Persona;
 import com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.repo.PersonaRep;
+import com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.util.PrinterUtil;
+import com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.util.TicketModel;
+import com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.util.TicketPrintable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableSet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.print.Printer;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.apache.commons.logging.Log;
@@ -15,6 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 @Component
@@ -47,6 +54,9 @@ public class PersonaController implements Initializable {
     private TableView<Persona> tblPersonas;
 
     @FXML
+    private ComboBox<String> cmbImpresoras;
+
+    @FXML
     private TableColumn colCi;
 
     @FXML
@@ -59,9 +69,12 @@ public class PersonaController implements Initializable {
     private TableColumn colEdad;
 
     private ObservableList<Persona> personas;
+    private String impresoraSeleccionada;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        cmbImpresoras.setItems(FXCollections.observableArrayList(getImpresoras()));
+        cmbImpresoras.setOnAction(e -> this.impresoraSeleccionada = cmbImpresoras.getValue());
         LOG.info(Global.loginModel);
         personas = FXCollections.observableArrayList(personaRep.findAll());
         this.colCi.setCellValueFactory(new PropertyValueFactory("ci"));
@@ -105,10 +118,26 @@ public class PersonaController implements Initializable {
             alert.setContentText("Formato de Edad incorrecta");
             alert.showAndWait();
         }
-
-
     }
 
-    public void closeWindows() {
+    public List<String> getImpresoras() {
+        List<String> impresoras = new ArrayList<>();
+        ObservableSet<Printer> printers = Printer.getAllPrinters();
+        for (Printer printer : printers) {
+            impresoras.add(printer.getName());
+            LOG.info("Printer1: " + printer.getName());
+        }
+        return impresoras;
+    }
+
+    @FXML
+    public void imprimir(ActionEvent event) {
+        LOG.info("impresoraSeleccionada: " + this.impresoraSeleccionada);
+        TicketModel ticketModel = new TicketModel();
+        ticketModel.setDependenciaNombre(Global.loginModel.getDependency());
+        ticketModel.setLetra(Global.loginModel.getName() + " " + Global.loginModel.getLastname());
+        ticketModel.setNumero(1);
+        TicketPrintable ticketPrintable = new TicketPrintable(ticketModel);
+        PrinterUtil.print(ticketPrintable, this.impresoraSeleccionada);
     }
 }

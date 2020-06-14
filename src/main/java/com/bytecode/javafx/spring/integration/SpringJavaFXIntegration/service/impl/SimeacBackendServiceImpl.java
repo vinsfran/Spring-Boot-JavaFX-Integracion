@@ -1,6 +1,5 @@
 package com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.service.impl;
 
-import com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.model.BaseResponse;
 import com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.model.LoginResponse;
 import com.bytecode.javafx.spring.integration.SpringJavaFXIntegration.service.SimeacBackendService;
 import com.google.gson.Gson;
